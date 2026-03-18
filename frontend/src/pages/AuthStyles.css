@@ -1,0 +1,133 @@
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(59, 130, 246, 0.14), transparent 34%),
+    radial-gradient(circle at 82% 78%, rgba(15, 23, 42, 0.1), transparent 36%),
+    linear-gradient(145deg, var(--bg-page), var(--bg-page-soft));
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+.auth-card {
+  background: var(--bg-overlay);
+  color: var(--text-primary);
+  padding: 40px;
+  width: 380px;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.auth-title {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.auth-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  outline: none;
+  transition: 0.3s;
+}
+
+.auth-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(14, 165, 164, 0.16);
+}
+
+.phone-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.phone-input-group span {
+  min-width: 48px;
+  padding: 10px 8px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface-soft);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.phone-input-group .phone-field {
+  margin-bottom: 0;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+.auth-button.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+}
+
+.auth-button.primary:hover {
+  filter: brightness(1.05);
+}
+
+.auth-button.success {
+  background: var(--success);
+  color: white;
+}
+
+.auth-button.success:hover {
+  filter: brightness(1.05);
+}
+
+.auth-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-error {
+  margin: 0 0 12px;
+  color: var(--danger);
+  font-size: 13px;
+  text-align: left;
+}
+
+.auth-success {
+  margin: 0 0 12px;
+  color: var(--success);
+  font-size: 13px;
+  text-align: left;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

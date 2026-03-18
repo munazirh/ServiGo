@@ -1,0 +1,241 @@
+.tech-page {
+  min-height: 100vh;
+  padding: 24px clamp(14px, 3vw, 34px) 40px;
+  color: var(--text-primary);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(8, 145, 178, 0.12), transparent 30%),
+    radial-gradient(circle at 86% 82%, rgba(34, 197, 94, 0.1), transparent 30%),
+    linear-gradient(150deg, var(--bg-page), var(--bg-page-soft));
+}
+
+.tech-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.tech-badge {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--accent);
+}
+
+.tech-header h1 {
+  margin: 0;
+}
+
+.tech-subtitle {
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+}
+
+.tech-error {
+  color: var(--danger);
+}
+
+.tech-stats {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.tech-stats article {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 13px;
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tech-stats article:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.tech-stats h3 {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.tech-stats p {
+  margin: 8px 0 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.tech-grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.tech-card {
+  margin-top: 12px;
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.tech-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.tech-card p {
+  margin: 0 0 10px;
+  color: var(--text-secondary);
+}
+
+.tech-card input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.tech-card button,
+.job-actions button {
+  margin-top: 10px;
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.tech-card button:hover,
+.job-actions button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+  box-shadow: 0 10px 20px rgba(8, 145, 178, 0.24);
+}
+
+.availability-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.availability-pill {
+  margin-top: 0;
+  font-size: 0.8rem;
+}
+
+.availability-pill.on {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+}
+
+.availability-pill.off {
+  background: linear-gradient(135deg, #64748b, #475569);
+}
+
+.job-list {
+  display: grid;
+  gap: 10px;
+}
+
+.tech-notification-list {
+  display: grid;
+  gap: 8px;
+}
+
+.tech-note {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 10px;
+  background: var(--bg-surface);
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+
+.tech-note strong {
+  display: block;
+}
+
+.tech-note p {
+  margin: 4px 0 0;
+  color: var(--text-secondary);
+}
+
+.tech-note.unread {
+  border-left: 3px solid var(--accent);
+}
+
+.job-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.job-item h4 {
+  margin: 0 0 6px;
+}
+
+.job-item p {
+  margin: 3px 0;
+  color: var(--text-secondary);
+}
+
+.job-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.job-actions .warn {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.job-actions .success {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+.job-item.history {
+  border-left: 3px solid var(--accent-2);
+}
+
+.tech-empty {
+  color: var(--text-secondary);
+  margin: 6px 0 0;
+}
+
+@media (max-width: 720px) {
+  .tech-page {
+    padding: 12px;
+  }
+
+  .tech-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

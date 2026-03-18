@@ -1,0 +1,13 @@
+backend/
+│
+├── index.js
+├── .env
+│
+├── models/
+│   └── customer.js
+│
+├── routes/
+│   └── customerRoutes.js
+│
+└── controllers/
+    └── customerController.js
