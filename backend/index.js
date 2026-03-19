@@ -18,9 +18,12 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // ================= DATABASE CONNECTION =================
 mongoose
-  .connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/serviceApp")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.error("❌ DB Error:", err));
+  .catch((err) => {
+    console.error("❌ MongoDB connection error:", err);
+    process.exit(1);
+  });
 
 // ================= ROUTES =================
 const customerRoutes = require("./routes/customerRoutes");

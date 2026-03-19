@@ -1,4 +1,4 @@
-const BASE_URL = window.ENV?.API_URL || "http://localhost:5000/api";
+const BASE_URL = window.ENV?.API_URL || '/api';
 
 // Small helper to keep fetch handling consistent everywhere.
 async function request(endpoint, { method = "GET", body, token } = {}) {

@@ -1,2 +1,2 @@
-window.ENV = window.ENV || { API_URL: 'http://localhost:5000/api' };
+window.ENV = window.ENV || { API_URL: '' };
 
