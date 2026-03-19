@@ -1,5 +1,7 @@
 const BASE_URL = process.env.REACT_APP_API_URL;
 
+console.log("API:", BASE_URL);
+
 // Small helper to keep fetch handling consistent everywhere.
 async function request(endpoint, { method = "GET", body, token } = {}) {
   const headers = {
