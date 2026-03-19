@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = window.ENV?.API_URL || '/api';
 
 function getHeaders() {
   const token = localStorage.getItem("token");

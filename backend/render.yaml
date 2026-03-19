@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: servigo-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        fromDatabase:
+          name: servigo-cluster
+          property: connectionString
+      - key: NODE_ENV
+        value: production
+        # Add JWT_SECRET, EMAIL_PASS etc. manually in Render dashboard
+    autoDeploy: true

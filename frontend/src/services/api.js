@@ -1,6 +1,10 @@
-const BASE_URL = process.env.REACT_APP_API_URL;
-
-console.log("API:", BASE_URL);
+const BASE_URL = window.ENV?.API_URL || '/api';
+>>>>>>> blackboxai/deployment-ready
+=======
+const BASE_URL = window.ENV?.API_URL || '/api';
+=======
+const BASE_URL = window.ENV?.API_URL || '/api';
+>>>>>>> blackboxai/deployment-ready
 
 // Small helper to keep fetch handling consistent everywhere.
 async function request(endpoint, { method = "GET", body, token } = {}) {

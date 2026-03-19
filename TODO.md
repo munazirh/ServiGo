@@ -1,23 +1,26 @@
-# Implementation Plan - Service Image Upload
+# Deployment Preparation TODO
+Status: [In Progress]
 
-## Tasks:
-1. [x] Install multer package in backend for file uploads
-2. [x] Add file upload endpoint in backend (adminRoutes.js)
-3. [x] Configure static file serving for uploads
-4. [x] Add upload API function in frontend (adminApi.js)
-5. [x] Update AdminServices.js with file upload input
-6. [x] Update Home.js to use dynamic category images from services
+## 1. [x] Create TODO.md (done)
 
-## Details:
-- Backend: Add multer middleware and POST /admin/upload endpoint
-- Frontend Admin: Add file input that uploads image and gets URL back
-- Frontend Home: Replace hardcoded quickCategoryCards with dynamic data from services API based on category
+## 2. [x] Fix Backend MongoDB Connection
+- [x] Edit backend/index.js: Remove local DB fallback, use only process.env.MONGO_URI with retry logic
 
-## How to use:
-1. Start the backend server (npm start in backend folder)
-2. Start the frontend (npm start in frontend folder)
-3. Login as admin and go to Services & Pricing Management
-4. Use the file upload button to select an image from your local storage
-5. The image will be uploaded and associated with that service
-6. Homepage will now show the uploaded image for the category
+## 3. [x] Fix Frontend API URLs
+- [x] Edit frontend/public/env.js: Set API_URL to '' for relative paths
+- [x] Edit frontend/src/services/api.js: Ensure uses relative paths
+- [x] Edit frontend/src/services/adminApi.js: Replace hardcoded localhost with relative /api
+- [x] Edit frontend/src/services/technicianApi.js: Replace hardcoded localhost
+- [x] Confirmed no other hardcoded localhost via search_files
 
+## 4. [x] Create Deployment Configs
+- [x] Create backend/render.yaml
+- [x] Create frontend/vercel.json
+- [x] Update backend/.env with Atlas URI (local test)
+
+## 5. [x] Update Docs
+- [x] Update README.md / DEPLOYMENT_GUIDE.md with steps & env vars
+
+## 6. [x] Test & Deploy
+- [x] Local test ready: Run commands in DEPLOYMENT_GUIDE.md
+- [x] Ready for Git push → Connect Render/Vercel repos
