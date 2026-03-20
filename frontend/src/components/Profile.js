@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./components.css";
+import { BASE_URL } from "../services/api.js";
 
 function Profile() {
   const [data, setData] = useState(null);
@@ -10,7 +11,7 @@ function Profile() {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:5000/api/customer/profile", {
+        const response = await fetch(`${BASE_URL}/customer/profile`, {
           method: "GET",
           headers: {
             Authorization: token,

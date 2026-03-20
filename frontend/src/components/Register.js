@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./components.css";
+import { BASE_URL } from "../services/api.js";
 
 function Register() {
   const [name, setName] = useState("");
@@ -26,14 +27,11 @@ function Register() {
     try {
       setLoading(true);
 
-      const response = await fetch(
-        "http://localhost:5000/api/customer/register",
-        {
+      const response = await fetch(`${BASE_URL}/customer/register`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, phone: `+91${phoneDigits}`, password }),
-        }
-      );
+        });
 
       const data = await response.json();
 

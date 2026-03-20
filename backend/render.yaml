@@ -6,10 +6,9 @@ services:
     buildCommand: npm install
     startCommand: npm start
     envVars:
+      # Set this in Render dashboard to your MongoDB Atlas connection string.
       - key: MONGO_URI
-        fromDatabase:
-          name: servigo-cluster
-          property: connectionString
+        value: ""
       - key: NODE_ENV
         value: production
         # Add JWT_SECRET, EMAIL_PASS etc. manually in Render dashboard

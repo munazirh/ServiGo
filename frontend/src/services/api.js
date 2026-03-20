@@ -1,10 +1,15 @@
-const BASE_URL = window.ENV?.API_URL || '/api';
->>>>>>> blackboxai/deployment-ready
-=======
-const BASE_URL = window.ENV?.API_URL || '/api';
-=======
-const BASE_URL = window.ENV?.API_URL || '/api';
->>>>>>> blackboxai/deployment-ready
+// Centralized API base URL (supports runtime and build-time configuration)
+const runtimeApiUrl =
+  typeof window !== "undefined" && window.ENV && window.ENV.API_URL
+    ? window.ENV.API_URL
+    : "";
+
+const buildApiUrl =
+  typeof process !== "undefined" && process.env && process.env.REACT_APP_API_URL
+    ? process.env.REACT_APP_API_URL
+    : "";
+
+export const BASE_URL = runtimeApiUrl || buildApiUrl || "/api";
 
 // Small helper to keep fetch handling consistent everywhere.
 async function request(endpoint, { method = "GET", body, token } = {}) {
