@@ -9,7 +9,17 @@ const path = require("path");
 const app = express();
 
 // ================= MIDDLEWARE =================
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://servi-go-skv9-j189rzbeg-munazirhs-projects.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+
+app.options("*", cors());
+
 app.use(express.json());
 app.use(helmet());
 
