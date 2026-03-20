@@ -10,13 +10,17 @@ const app = express();
 
 // ================= MIDDLEWARE =================
 app.use(cors({
-  origin: [
-    "https://servi-go-skv9-j189rzbeg-munazirhs-projects.vercel.app"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  origin: function(origin, callback) {
+    if (!origin || origin.includes("vercel.app")) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 }));
+
+app.options("*", cors());
 
 app.options("*", cors());
 
