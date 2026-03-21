@@ -1,4 +1,4 @@
-const BASE_URL = window.ENV?.API_URL || '/api';
+import { BASE_URL } from "./api";
 
 function getHeaders() {
   const token = localStorage.getItem("token");
