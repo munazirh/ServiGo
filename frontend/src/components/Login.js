@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "./components.css";
-import { BASE_URL } from "../services/api.js";
+import { request } from "../services/api.js";
 import { parseStoredUser, setAuthSession } from "../utils/session";
 
 function Login() {
@@ -45,21 +45,13 @@ useEffect(() => {
     setLoading(true);
 
     try {
-      const response = await fetch(`${BASE_URL}/customer/login`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            identifier: identifier.trim(),
-            password: password.trim(),
-          }),
-        });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.message || "Invalid credentials");
-        return;
-      }
+      const data = await request("/customer/login", {
+        method: "POST",
+        body: {
+          identifier: identifier.trim(),
+          password: password.trim(),
+        },
+      });
 
       if (!data.token || !data.user) {
         setError("Invalid server response");
@@ -85,7 +77,7 @@ useEffect(() => {
 
     } catch (err) {
       console.error("Login Error:", err);
-      setError("Server error. Please try again later.");
+      setError(err?.message || "Server error. Please try again later.");
     } finally {
       setLoading(false);
     }

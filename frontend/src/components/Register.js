@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./components.css";
-import { BASE_URL } from "../services/api.js";
+import { request } from "../services/api.js";
 
 function Register() {
   const [name, setName] = useState("");
@@ -27,23 +27,16 @@ function Register() {
     try {
       setLoading(true);
 
-      const response = await fetch(`${BASE_URL}/customer/register`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, email, phone: `+91${phoneDigits}`, password }),
-        });
+      await request("/customer/register", {
+        method: "POST",
+        body: { name, email, phone: `+91${phoneDigits}`, password },
+      });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setSuccess("Registration successful. Redirecting to login...");
-        setTimeout(() => navigate("/login"), 800);
-      } else {
-        setError(data.error || "Registration failed");
-      }
+      setSuccess("Registration successful. Redirecting to login...");
+      setTimeout(() => navigate("/login"), 800);
 
     } catch (error) {
-      setError("Server error");
+      setError(error?.message || "Server error");
     } finally {
       setLoading(false);
     }

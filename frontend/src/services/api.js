@@ -3,7 +3,7 @@ export const BASE_URL = process.env.REACT_APP_API_URL;
 console.log("API URL:", BASE_URL);
 
 // Small helper to keep fetch handling consistent everywhere.
-async function request(endpoint, { method = "GET", body, token } = {}) {
+export async function request(endpoint, { method = "GET", body, token } = {}) {
   const headers = {
     "Content-Type": "application/json",
   };
