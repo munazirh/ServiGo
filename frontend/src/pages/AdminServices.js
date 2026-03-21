@@ -29,7 +29,17 @@ function AdminServices() {
     try {
       setLoading(true);
       const data = await fetchAdminServices();
-      setServices(data);
+      const normalized = Array.isArray(data)
+        ? data
+        : Array.isArray(data?.services)
+          ? data.services
+          : [];
+
+      if (!Array.isArray(data) && !Array.isArray(data?.services)) {
+        setError("Unexpected services response format");
+      }
+
+      setServices(normalized);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -232,7 +242,8 @@ const onChange = (event) => {
           </tr>
         </thead>
         <tbody>
-          {services.map((service) => (
+          {Array.isArray(services) &&
+            services.map((service) => (
             <tr key={service._id}>
               <td>
                 {service.image ? (
